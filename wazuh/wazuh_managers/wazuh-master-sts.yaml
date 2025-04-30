@@ -50,12 +50,9 @@ spec:
         - name: wazuh-manager
           image: 'wazuh/wazuh-manager:5.0.0'
           resources:
-            requests:
-              cpu: "1200m" 
-              memory: "1068Mi"
             limits:
-              cpu: "1200m"
-              memory: "1068Mi"
+              cpu: 600m
+              memory: 768Mi
           securityContext:
             capabilities:
               add: ["SYS_CHROOT"]
