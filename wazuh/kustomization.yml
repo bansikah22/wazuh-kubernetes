@@ -42,6 +42,9 @@ configMapGenerator:
     files:
       - indexer_stack/wazuh-dashboard/dashboard_conf/opensearch_dashboards.yml
 
+generatorOptions:
+  disableNameSuffixHash: true
+
 resources:
   - base/wazuh-ns.yaml
   - base/storage-class.yaml
