@@ -37,13 +37,6 @@ spec:
         - name: wazuh-authd-pass
           secret:
             secretName: wazuh-authd-pass
-        # ───── AWS creds volume ─────
-        - name: aws-credentials           # ← added
-          secret:
-            secretName: aws-credentials
-            items:
-              - key: credentials
-                path: credentials
       securityContext:
         fsGroup: 101
       containers:
@@ -77,12 +70,6 @@ spec:
               mountPath: /wazuh-config-mount/etc/authd.pass
               subPath: authd.pass
               readOnly: true
-            # ───── AWS creds volume ─────
-            - name: aws-credentials
-              mountPath: /root/.aws/credentials
-              subPath: credentials
-              readOnly: true
-            # ───── AWS creds volume ─────
             - name: wazuh-manager-master
               mountPath: /var/ossec/api/configuration
               subPath: wazuh/var/ossec/api/configuration
